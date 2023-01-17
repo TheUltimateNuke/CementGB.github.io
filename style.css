@@ -1,0 +1,53 @@
+:root
+{
+    --lightgrey: #7393B3;
+    --darkgrey: #29465B;
+}
+
+*
+{
+    font-family: 'Quantico', sans-serif;
+    color: white;
+}
+
+body
+{
+    background-color: var(--lightgrey);
+}
+
+.base
+{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img
+{
+    height: 200px;
+}
+
+.download
+{
+    height: 300px;
+}
+
+.download button
+{
+    height: 5rem;
+    width: 20rem;
+    border: none;
+    background-color: var(--darkgrey);
+    transition-duration: 300ms;
+    transition-timing-function:cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    font-size: 2rem;
+    box-shadow: 5px 10px black;
+}
+
+.download button:hover
+{
+    transform: scale(1.2);
+    box-shadow: 15px 30px black;
+}
