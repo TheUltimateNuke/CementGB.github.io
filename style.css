@@ -48,3 +48,8 @@ body
     box-shadow: 15px 30px black;
     cursor: pointer;
 }
+
+.download a
+{
+    text-decoration: none;
+}
