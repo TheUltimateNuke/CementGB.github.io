@@ -29,25 +29,22 @@ body
     height: 200px;
 }
 
-.download
-{
-    height: 300px;
-}
 
-.download button
+.download
 {
     height: 5rem;
     width: 20rem;
     border: none;
     background-color: var(--darkgrey);
     transition-duration: 300ms;
-    transition-timing-function:cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition-timing-function: cubic-bezier(.23,.7,.23,.71);
     font-size: 2rem;
     box-shadow: 5px 10px black;
 }
 
-.download button:hover
+.download:hover
 {
     transform: scale(1.2);
     box-shadow: 15px 30px black;
+    cursor: pointer;
 }
