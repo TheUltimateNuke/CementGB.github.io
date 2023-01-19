@@ -1,13 +1,13 @@
 :root
 {
-    --lightgrey: #7393B3;
-    --darkgrey: #29465b;
+    --lightgrey: #92BBE4;
+    --darkgrey: #014257;
 }
 
 *
 {
     font-family: 'Quantico', sans-serif;
-    color: white;
+    color: #CBF6FF;
     user-select: none;
 }
 
@@ -33,7 +33,7 @@ body
 .logo img
 {
     margin-top: 2rem;
-    height: 200px;
+    height: 400px;
 }
 
 
