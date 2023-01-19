@@ -1,13 +1,13 @@
 :root
 {
-    --lightgrey: #92BBE4;
-    --darkgrey: #014257;
+    --lightgrey: rgb(146, 187, 228);
+    --darkgrey: rgb(1, 66, 87);
 }
 
 *
 {
     font-family: 'Quantico', sans-serif;
-    color: #CBF6FF;
+    color: rgb(203, 246, 255);
     user-select: none;
     margin: 0;
     z-index: 5;
