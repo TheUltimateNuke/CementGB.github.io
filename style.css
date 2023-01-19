@@ -9,6 +9,8 @@
     font-family: 'Quantico', sans-serif;
     color: #CBF6FF;
     user-select: none;
+    margin: 0;
+    z-index: 5;
 }
 
 body
