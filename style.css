@@ -1,21 +1,45 @@
 :root
 {
-    --lightgrey: rgb(146, 187, 228);
+    --lightgrey: #92bbe4;
+    --lightgrey-dark: #85b3e0;
     --darkgrey: rgb(1, 66, 87);
+    --rhombus-size: 1rem;
+    --rhombus-spacing: 3rem;
 }
 
 *
 {
     font-family: 'Quantico', sans-serif;
-    color: rgb(203, 246, 255);
     user-select: none;
     margin: 0;
-    z-index: 5;
+    color: rgb(203, 246, 255);
+}
+
+@keyframes background {
+    0%
+    {
+        background-size: 100%;
+    }
 }
 
 body
 {
-    background-color: var(--lightgrey);
+    background-image:
+    repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent var(--rhombus-size),
+        var(--lightgrey) var(--rhombus-size),
+        var(--lightgrey) calc(var(--rhombus-spacing) + var(--rhombus-size))
+      ),
+    repeating-linear-gradient(
+        45deg,
+        var(--lightgrey-dark),
+        var(--lightgrey-dark) var(--rhombus-size),
+        var(--lightgrey) var(--rhombus-size),
+        var(--lightgrey) calc(var(--rhombus-spacing) + var(--rhombus-size))
+      );
+     /*  animation: background 1s linear 0s 9999 forwards; */
 }
 
 .base
@@ -78,6 +102,7 @@ body
 .about
 {
     height: auto;
+    
 }
 
 .about div
@@ -86,6 +111,12 @@ body
     text-align: center;
     font-size: 1.2rem;
     width: 50%;
+    color: var(--darkgrey);
+}
+
+.about div *
+{
+    color: var(--darkgrey);
 }
 
 .separator 
