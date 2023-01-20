@@ -15,13 +15,6 @@
     color: rgb(203, 246, 255);
 }
 
-@keyframes background {
-    0%
-    {
-        background-size: 100%;
-    }
-}
-
 body
 {
     background-image:
