@@ -56,7 +56,7 @@ body
 }
 
 
-.download
+.hoverButtonAnimated
 {
     height: 5rem;
     width: 20rem;
@@ -69,7 +69,7 @@ body
     margin: 2rem;
 }
 
-.download a
+.hoverButtonAnimated a
 {
     text-decoration: none;
     width: 100%;
@@ -79,13 +79,39 @@ body
     justify-content: center;
 }
 
-.download.large
+.hoverButtonAnimated.large
 {
     height: 5rem;
     width: 44rem;
 }
 
-.download:hover
+
+
+.hoverButtonAnimated.docsButton
+{
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--darkgrey);
+
+    font-size: 1rem;
+    margin-block: 1.5rem;
+
+    color: white;
+    background-color: rgb(44, 44, 44);
+}
+
+
+
+.hoverButtonAnimated.docsButton:hover
+{
+    transform: scale(1.2);
+    box-shadow: 10px 15px black;
+    cursor: pointer;
+}
+
+
+
+.hoverButtonAnimated:hover
 {
     transform: scale(1.2);
     box-shadow: 15px 30px black;
