@@ -18,28 +18,43 @@
 </head>
 
 <body style="background-image: none; background-color: rgb(20, 20, 20);">
-
-
     
 <div>
-    <div class="hoverButtonAnimated docsButton">
+    <div class="hoverButtonAnimated docsButton" id="docsButtonIAO">
         <a style="color: rgb(42, 205, 255);">InteractableObject</a>
     </div>
-    <div class="hoverButtonAnimated docsButton">
+    <div class="hoverButtonAnimated docsButton" id="docsButton">
         <a style="color: rgb(42, 205, 255);">Actor</a>
     </div>
-    <div class="hoverButtonAnimated docsButton">
+    <div class="hoverButtonAnimated docsButton" id="docsButton">
         <a style="color: rgb(42, 205, 255);">StatusHandler</a>
     </div>
-    <div class="hoverButtonAnimated docsButton">
+    <div class="hoverButtonAnimated docsButton" id="docsButton">
         <a style="color: rgb(42, 205, 255);">InteractableObject</a>
     </div>
-    <div class="hoverButtonAnimated docsButton">
+    <div class="hoverButtonAnimated docsButton" id="docsButton">
         <a style="color: rgb(42, 205, 255);">InteractableObject</a>
     </div>
 </div>
 
+    <div id="docsMainWindow">
+        <iframe src="/Documentation HTMLs/main.html" class="docsMainWindow"></iframe>
+    </div>
 
+    <script>
+        function loadIframe() {
+            document.getElementById("docsMainWindow").remove();
+
+            var iframe = document.createElement('iframe');
+            iframe.src = '/Documentation HTMLs/interactableobject.html';
+            iframe.className = "docsMainWindow";
+            iframe.id = "docsMainWindow"
+            document.body.appendChild(iframe);
+            
+        }
+      
+        document.getElementById('docsButtonIAO').addEventListener('click', loadIframe);
+      </script>
 </body>
 
 </html>

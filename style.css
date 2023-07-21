@@ -35,6 +35,8 @@ body
      /*  animation: background 1s linear 0s 9999 forwards; */
 }
 
+
+
 .base
 {
     display: flex;
@@ -43,6 +45,10 @@ body
     justify-content: center;
     align-items: center;
 }
+
+
+
+
 
 .logo
 {
@@ -54,6 +60,9 @@ body
     margin-top: 2rem;
     height: 400px;
 }
+
+
+
 
 
 .hoverButtonAnimated
@@ -87,6 +96,8 @@ body
 
 
 
+
+
 .hoverButtonAnimated.docsButton
 {
     height: 2rem;
@@ -101,7 +112,6 @@ body
 }
 
 
-
 .hoverButtonAnimated.docsButton:hover
 {
     transform: scale(1.2);
@@ -109,14 +119,16 @@ body
     cursor: pointer;
 }
 
-
-
 .hoverButtonAnimated:hover
 {
     transform: scale(1.2);
     box-shadow: 15px 30px black;
     cursor: pointer;
 }
+
+
+
+
 
 .about
 {
@@ -138,6 +150,10 @@ body
     color: var(--darkgrey);
 }
 
+
+
+
+
 .separator 
 {
     height: 2rem;
@@ -150,4 +166,20 @@ body
     background-color: var(--darkgrey);
     height: 5px;
     width: 33%;
+}
+
+
+
+
+
+.docsMainWindow
+{
+    width: 50rem;
+    height: 50rem;
+    border-radius: 2rem;
+    border: none;
+    scroll-behavior: none;
+
+    margin-left: 50rem;
+    margin-top: -15rem;
 }
