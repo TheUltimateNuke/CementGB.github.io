@@ -44,25 +44,22 @@ jobs:
           dotnet tool update -g docfx
 
       - run:
-          docfx api/docfx.json
-
+          docfx /pages/api/docfx.json
+      
       - name: Upload artifact (landing)
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './landing'
+          path: './pages/landing/'
 
       - name: Upload artifact (docs)
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './docs'
+          path: './pages/docs/'
 
       - name: Upload artifact (api)
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './api'
+          path: './pages/api/_site/'
 
       - name: Deploy to GitHub Pages
         id: deployment
