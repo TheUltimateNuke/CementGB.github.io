@@ -47,22 +47,13 @@ jobs:
           docfx ./pages/api/docfx.json
 
       - name: Upload artifact (landing)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: github-pages-a
-          path: ./pages/landing/
-
-      - name: Upload artifact (docs)
-        uses: actions/upload-artifact@v3
-        with:
-          name: github-pages-b
-          path: ./pages/docs/
-
-      - name: Upload artifact (api)
-        uses: actions/upload-artifact@v3
-        with:
-          name: github-pages-c
-          path: ./pages/api/_site/
+          name: github-pages
+          path: |
+            ./pages/landing/
+            ./pages/docs/
+            ./pages/api/_site
 
       - name: Deploy to GitHub Pages
         id: deployment
