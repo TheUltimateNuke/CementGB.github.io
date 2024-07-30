@@ -132,3 +132,7 @@ dist
 # Replit files
 .replit
 replit.nix
+
+# DocFx files
+.cache
+/**/_site/
