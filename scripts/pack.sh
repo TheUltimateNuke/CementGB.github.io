@@ -6,4 +6,4 @@ mkdir ../build/api/
 cp -r ./pages/landing ../build/
 cp -r ./pages/docs/ ../build/docs/
 cp -r ./pages/api/_site/ ../build/api/
-tar -czvf build.tar.gz ../build/ || exit 1
+# tar -czvf build.tar.gz ../build/ || exit 1
