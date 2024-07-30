@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# A tweaked workflow for deploying all components of CementGB.github.io at once
+name: Deploy website to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -31,13 +31,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        
+      - name: Dotnet Setup
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.x
+        
+      - run: 
+          dotnet tool update -g docfx
+
+      - run:
+          docfx ./pages/api/docfx.json
+
+      - run:
+          bash ./scripts/pack.sh
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          name: github-pages
+          path: ./build/
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
