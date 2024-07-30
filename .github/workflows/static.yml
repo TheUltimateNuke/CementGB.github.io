@@ -46,14 +46,14 @@ jobs:
       - run:
           docfx ./pages/api/docfx.json
 
+      - run:
+          bash ./scripts/pack.sh
+
       - name: Upload artifact (landing)
         uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
-          path: |
-            ./pages/landing/
-            ./pages/docs/
-            ./pages/api/_site
+          path: ./build.tar.gz
 
       - name: Deploy to GitHub Pages
         id: deployment
