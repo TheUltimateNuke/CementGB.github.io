@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir ./build/
 cp -rf ./pages/landing/ ./build
 cp -rf ./pages/docs ./build/docs
 cp -rf ./pages/api/_site ./build/api
