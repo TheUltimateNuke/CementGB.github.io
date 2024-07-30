@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           name: github-pages
-          path: ./build.tar.gz
+          path: ./build/
 
       - name: Deploy to GitHub Pages
         id: deployment
