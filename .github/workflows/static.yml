@@ -44,7 +44,7 @@ jobs:
           dotnet tool update -g docfx
 
       - run:
-          docfx /pages/api/docfx.json
+          docfx ./pages/api/docfx.json
       
       - name: Upload artifact (landing)
         uses: actions/upload-pages-artifact@v3
