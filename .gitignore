@@ -136,3 +136,5 @@ replit.nix
 # DocFx files
 .cache
 /**/_site/
+
+build/

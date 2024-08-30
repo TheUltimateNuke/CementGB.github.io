@@ -40,26 +40,14 @@ jobs:
         with:
           dotnet-version: 8.x
         
-      - run: 
-          dotnet tool update -g docfx
-
       - run:
-          docfx ./pages/api/docfx.json
-      
-      - name: Upload artifact (landing)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './pages/landing/'
+          bash ./scripts/pack.sh
 
-      - name: Upload artifact (docs)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './pages/docs/'
-
-      - name: Upload artifact (api)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './pages/api/_site/'
+          name: github-pages
+          path: ./build/
 
       - name: Deploy to GitHub Pages
         id: deployment
