@@ -41,13 +41,7 @@ jobs:
           dotnet-version: 8.x
         
       - run: 
-          dotnet tool update -g docfx
-
-      - run:
-          docfx ./pages/api/docfx.json
-
-      - run:
-          bash ./scripts/pack.sh
+          bash ./scripts/build.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

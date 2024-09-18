@@ -36,8 +36,11 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "Cement API Reference",
-      "_appTitle": "API Reference",
+      "_appName": "Cement",
+      "_appTitle": "Cement",
+      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "images/favicon_small.png",
+      "_enableNewTab": true,
       "_enableSearch": true,
       "pdf": false
     }
