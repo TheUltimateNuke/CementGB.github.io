@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "src": "../src",
+          "src": "src/",
           "files": [
             "**/*.csproj"
           ]
@@ -42,6 +42,7 @@
       "_appLogoPath": "images/favicon_small.png",
       "_enableNewTab": true,
       "_enableSearch": true,
+      "_disableToc": false,
       "pdf": false
     }
   }
