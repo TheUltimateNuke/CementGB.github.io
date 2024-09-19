@@ -19,5 +19,4 @@ This is the repository hosting the website for the Cement modding library for Ga
 Simply open `pages/docs/md` and add a Markdown file with the title of the page as the filename but in lowercase and with no spaces (i.e. `Getting Started` becomes `getting-started.md`). You can then make your changes. When you're done, simply commit, push and build using the steps from above.
 
 ### Updating the API reference
-Build or download the [newest Cement release](https://github.com/HueSamai/CementSource/releases/latest)
-> TBC
+Its as simple as building or downloading the [newest Cement release](https://github.com/HueSamai/CementSource/releases/latest)'s `CementDocs.xml` file, placing it in `pages/docs/src`, and building the website via `scripts/build.sh`. API summaries are generated from the XML found in the source.
