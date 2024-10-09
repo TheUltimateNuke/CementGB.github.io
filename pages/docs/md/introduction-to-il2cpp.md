@@ -24,7 +24,7 @@ namespace MyFirstMod;
 public static class VanillaTypePatches // It is recommended to follow these naming conventions (PascalCase + Vanilla type name + "Patches" at the end)
 {
     [HarmonyPatch(typeof(VanillaType), nameof(VanillaType.VanillaMethod))] // Replace VanillaType and VanillaMethod with the type and method you want to patch
-    private static class VanillaMethodPatch // This is a class because you can put both a prefix and a postfix on the same method
+    private static class VanillaMethodPatch // This is a class because you can put both a prefix and a postfix on the same method (also recommended to follow the same naming conventions, this time with vanilla method name and non-plural "Patch")
     {
         /* Called just before VanillaMethod. Returns a bool to decide whether to run the original method or not: false = skip original method, true = don't skip. Can also be void if you want it to always run the original method.
         Try to prefer using Postfix as this can prevent other patches from running. MUST BE CALLED "Prefix" OR HAVE THE [HarmonyPrefix] ANNOTATION! */
