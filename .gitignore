@@ -135,7 +135,6 @@ replit.nix
 
 # DocFx files
 .cache
-/**/_site/
-
-build/
+pages/docs/_site/
 pages/docs/src/
+build/
