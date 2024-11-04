@@ -3,7 +3,7 @@
 # Saves the script's current path
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" || exit
 
-# Install and fix PATH for docfx
+# Install and fix PATH for tools
 dotnet tool update -g docfx
 export PATH="$HOME/.dotnet/tools:$PATH"
 

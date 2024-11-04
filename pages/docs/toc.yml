@@ -1,6 +1,6 @@
 - name: Back to landing
   href: ../
 - name: Docs
-  href: md/
+  href: docs/
 - name: API
   href: api/
