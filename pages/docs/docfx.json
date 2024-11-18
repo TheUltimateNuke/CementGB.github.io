@@ -13,6 +13,11 @@
     }
   ],
   "build": {
+    "markdownEngineProperties": {
+      "alerts": {
+        "TODO": "alert alert-secondary"
+      }
+    },
     "content": [
       {
         "files": [

@@ -5,19 +5,19 @@ Unfortunately, once Gang Beasts began receiving updates again in 2023, Boneloaf 
 Thanks to MelonLoader and its libraries, however, its still possible to modify the game almost the same way we could before, just with a few janky bits.
 
 > [!TIP]
-> Further reading about modding with C# in a Unity IL2CPP domain is covered on the [MelonLoader wiki](https://melonwiki.xyz) and the [Il2CppInterop docs](https://github.com/BepInEx/Il2CppInterop/tree/master/Documentation). It can also be helpful to ask in community chats such as our [Cement Discord](https://discord.gg/fCwXc5k43w), the [MelonLoader Discord](https://discord.gg/2Wn3N2P), or the [BepInEx](https://discord.gg/MpFEDAg) Discord.
+> Further reading about modding with C# in a Unity IL2CPP domain is covered on the [MelonLoader wiki](https://melonwiki.xyz) and [Il2CppInterop docs](https://github.com/BepInEx/Il2CppInterop/tree/master/Documentation). It can also be helpful to ask in community chats such as our [Cement Discord](https://discord.gg/fCwXc5k43w), the [MelonLoader Discord](https://discord.gg/2Wn3N2P), or the [BepInEx](https://discord.gg/MpFEDAg) Discord.
 
 ## Notable IL2CPP Differences
 
 > [!NOTE]
 > This section explains in detail some **intermediate**
- concepts a beginner may not fully understand or require. To get straight into making your first mod jump to [Getting Started](getting-started.md).
+ concepts a beginner may not fully understand or require. To get straight into making your first mod, jump to [Getting Started](getting-started.md).
 
 ### Harmony
 
 > [!IMPORTANT]
 > Harmony is explained in full in [the Harmony docs](https://harmony.pardeike.net/). Note that MelonLoader uses a fork of Harmony called [HarmonyX](https://github.com/BepInEx/HarmonyX/wiki) that has a small difference in workflow, however the original Harmony docs should still be relevant.
-> For ease of explanation, we recommend you read these docs for more information.
+> For ease of explanation, we highly recommend you read these docs for more information.
 
 When you work with Harmony in IL2CPP, you're not able to manipulate the runtime code (IL) of the game like in Mono. Instead, you're basically hooking into codeless generated "dummy" assemblies that only contains the method signature for the original native method.  
 What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix. The recommended way of creating a Harmony patch is explained as follows:
@@ -55,13 +55,10 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 ```
 
 > [!TODO]
-> Provide IL2CPP-specific info about [injections](https://harmony.pardeike.net/articles/patching-injections.html)
+> Provide IL2CPP-specific info about [Harmony injections](https://harmony.pardeike.net/articles/patching-injections.html)
 
 > [!WARNING]
-> IL2CPP Harmony patches do not work for constructors OR generics. Do not be fooled by `MethodType.Constructor`!
-
-> [!TIP]
-> Further reading about Harmony can be found in [their docs](https://harmony.pardeike.net/articles/intro.html). Note that MelonLoader uses a fork of Harmony called [HarmonyX](https://github.com/BepInEx/HarmonyX/wiki) that has a small difference in workflow, however the original Harmony docs should still be relevant.
+> IL2CPP Harmony patches do not work well for constructors OR generics. Do not be fooled by `MethodType.Constructor`!
 
 ### Unity-Serialized Fields
 
@@ -69,3 +66,7 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 > Some useful information about how this system works in Unity itself can be found in the [Unity docs](https://docs.unity.com/), starting from the [`SerializeField` attribute documentation](https://docs.unity3d.com/ScriptReference/SerializeField.html).
 
 Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the `SerializeField` attribute) are saved in a separate object associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all (potentially modified) editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
+
+> [!TIP]
+> The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained.
+

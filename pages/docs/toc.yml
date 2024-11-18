@@ -1,6 +1,6 @@
 - name: Back to landing
   href: ../
 - name: Docs
-  href: docs/
+  href: guides/
 - name: API
   href: api/
