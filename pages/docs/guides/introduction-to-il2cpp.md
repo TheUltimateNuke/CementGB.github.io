@@ -68,5 +68,4 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the `SerializeField` attribute) are saved in a separate object associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all (potentially modified) editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
 
 > [!TIP]
-> The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained.
-
+> The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained. For a more concise overview, check the PR as well.
