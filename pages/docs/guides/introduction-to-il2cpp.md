@@ -5,13 +5,17 @@ Unfortunately, once Gang Beasts began receiving updates again in 2023, Boneloaf 
 Thanks to MelonLoader and its libraries, however, its still possible to modify the game almost the same way we could before, just with a few janky bits.
 
 > [!TIP]
-> Further reading about modding with C# in a Unity IL2CPP domain is covered on the [MelonLoader wiki](https://melonwiki.xyz) and [Il2CppInterop docs](https://github.com/BepInEx/Il2CppInterop/tree/master/Documentation). It can also be helpful to ask in community chats such as our [Cement Discord](https://discord.gg/fCwXc5k43w), the [MelonLoader Discord](https://discord.gg/2Wn3N2P), or the [BepInEx](https://discord.gg/MpFEDAg) Discord.
+> Further reading about modding with C# in a Unity IL2CPP domain is covered on the [MelonLoader wiki](https://melonwiki.xyz) and [Il2CppInterop docs](https://github.com/BepInEx/Il2CppInterop/tree/master/Documentation). It can also be helpful to ask questions in community chats such as our [Cement](https://discord.gg/fCwXc5k43w) Discord, the [MelonLoader](https://discord.gg/2Wn3N2P) Discord, or the [BepInEx](https://discord.gg/MpFEDAg) Discord.
 
 ## Notable IL2CPP Differences
 
 > [!NOTE]
 > This section explains in detail some **intermediate**
  concepts a beginner may not fully understand or require. To get straight into making your first mod, jump to [Getting Started](getting-started.md).
+
+### Native vs Managed Types
+> [!TODO]
+> Explain difference between Il2CppSystem.Type and System.Type. . .
 
 ### Harmony
 
@@ -20,7 +24,7 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 > For ease of explanation, we highly recommend you read these docs for more information.
 
 When you work with Harmony in IL2CPP, you're not able to manipulate the runtime code (IL) of the game like in Mono. Instead, you're basically hooking into codeless generated "dummy" assemblies that only contains the method signature for the original native method.  
-What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix. The recommended way of creating a Harmony patch is explained as follows:
+What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. The recommended way of creating a Harmony patch is explained as follows (there are many ways one can be written, this is up to personal convention):
 > [!IMPORTANT]
 > Make sure to read the comments.
 
@@ -41,6 +45,7 @@ internal static class VanillaTypePatches // It is recommended to follow these na
         private static bool Prefix()
         {
             // Can be anything
+
             return true;
         }
 
@@ -67,5 +72,16 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 
 Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the `SerializeField` attribute) are saved in a separate object associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all (potentially modified) editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
 
-> [!TIP]
-> The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained. For a more concise overview, check the PR as well.
+> [!NOTE]
+> The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained. For a more detailed overview, check the PR as well.
+
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically types deriving from `struct`, and reference types are types deriving from `object`. In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
+The PR shows an example for implementing these fields both in the editor before compiling and in the game, IL2CPP-side.
+
+> [!TODO]
+> Link to tutorial on IL2CPP custom and non-custom dummy scripts.
+
+### Applying Native Interfaces
+
+> [!TODO]
+> Explain interface conversion to classes and how to use `ClassInjector.RegisterTypeInIl2Cpp` to apply said interface-classes to registered native types.
